@@ -1,0 +1,5 @@
+{
+  "url": "/",
+  "method": "_GET",
+  "controller": "parkController"
+}
