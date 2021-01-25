@@ -1,5 +1,6 @@
 <?php
 
+namespace App\App;
 
 
 class HTTPRequest

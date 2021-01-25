@@ -1,8 +1,12 @@
 <?php
+namespace App\Domain\Entities;
 
+use App\Domain\Traits\Hydrator;
 
-
-
+/**
+ * Class Fleet
+ * @package App\Domain\Entities
+ */
 class Fleet {
     private $id = 0;
     private $user;

@@ -1,10 +1,15 @@
 <?php
+namespace App\App;
 
-
-
+/**
+ * Class Application
+ * @package App\App
+ */
 class Application {
+    /**
+     * @var HTTPRequest
+     */
     protected $httpRequest;
-
 
     public function __construct()
     {
@@ -12,6 +17,9 @@ class Application {
 
     }
 
+    /**
+     * @return mixed
+     */
     public function getController()
     {
         $handle = file_get_contents(__DIR__.'/routes.json');

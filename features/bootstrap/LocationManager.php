@@ -5,7 +5,8 @@ class LocationManager {
     public function addLocation ($location) {
         $locationDatabase = file_get_contents(__DIR__.'/locations.json');
         $content = json_decode($locationDatabase, true);
-        array_push($content['location'], $location);
+        $content['locations']['coordinates']= '';
+        $content['locations']['coordinates'] = $location;
         file_put_contents(__DIR__.'/locations.json', json_encode($content, JSON_PRETTY_PRINT));
     }
 

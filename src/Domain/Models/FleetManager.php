@@ -1,11 +1,19 @@
 <?php
 
+namespace App\Domain\Models;
 
-
-
+/**
+ * Class FleetManager
+ * @package App\Domain\Models
+ */
 class FleetManager
 {
     private $id;
+
+    /**
+     * @return array of fleets
+     *
+     */
     public function getFleets(): array
     {
 
@@ -16,6 +24,10 @@ class FleetManager
         return $fleets;
     }
 
+    /**
+     * @param $id
+     * @return array|mixed
+     */
     public function find($id)
     {
         $fleet = [];

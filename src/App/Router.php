@@ -1,7 +1,11 @@
 <?php
 
+namespace App\App;
 
-
+/**
+ * Class Router
+ * @package App\App
+ */
 class Router
 {
     protected $routes = [];

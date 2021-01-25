@@ -37,7 +37,8 @@ class FeatureContext extends TestCase implements Context
      */
     public function myFleet()
     {
-       return $this->controller->getFleet('1456');
+
+        $this->controller =  $this->controller->initialiseFleet('1');
     }
 
     /**
@@ -46,13 +47,16 @@ class FeatureContext extends TestCase implements Context
     public function aVehicle()
     {
 
-        $vehicle = [
+        $vehicleDatas = [
             'registration' => 'A5677',
             'type' => 'car',
-            'fleetUser' => 'me',
+            'fleetId' => '',
             'parkLocation' => '',
+            'isParked' => false
         ];
-        $this->controller->registerVehicle($vehicle);
+        $vehicle = new Vehicle($vehicleDatas);
+        $this->controller->setVehicle($vehicle);
+        $this->controller = $this->controller->registerVehicle($this->controller);
     }
 
     /**
@@ -60,8 +64,9 @@ class FeatureContext extends TestCase implements Context
      */
     public function iHaveRegisteredThisVehicleIntoMyFleet()
     {
-        $vehicleRegistration = "A5677";
-        $this->controller->isRegistered($vehicleRegistration);
+
+        $this->controller = $this->controller->isRegistered($this->controller);
+
     }
 
     /**
@@ -70,7 +75,7 @@ class FeatureContext extends TestCase implements Context
     public function aLocation()
     {
         $location = '40.999999, 34.00000';
-        $this->controller->registerLocation();
+        $this->controller = $this->controller->registerLocation($location);
     }
 
     /**
@@ -78,7 +83,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function iParkMyVehicleAtThisLocation()
     {
-        $this->controller->parkVehicle();
+        $this->controller = $this->controller->parkVehicle($this->controller);
 
     }
 
@@ -87,7 +92,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function theKnownLocationOfMyVehicleShouldVerifyThisLocation()
     {
-      $this->controller->checkLocation();
+      $this->controller =  $this->controller->checkLocation($this->controller);
     }
 
     /**
@@ -96,16 +101,16 @@ class FeatureContext extends TestCase implements Context
     public function myVehicleHasBeenParkedIntoThisLocation()
     {
 
-        $this->controller->checkLocation();
+        $this->controller = $this->controller->isParked($this->controller);
 
     }
 
     /**
      * @When I try to park my vehicle at this location
      */
-    public function iTryToParkMyVehicleAtThisLocation($location)
+    public function iTryToParkMyVehicleAtThisLocation()
     {
-       if(true === $this->controller->locationAlreadyUsed($location));
+       $this->controller = $this->controller->islocationAlreadyUsed($this->controller);
 
     }
 
@@ -114,7 +119,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function iShouldBeInformedThatMyVehicleIsAlreadyParkedAtThisLocation()
     {
-        return $this->controller->onPark();
+        $this->controller->getErrorMessage();
 
     }
 
@@ -123,7 +128,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function iRegisterThisVehicleIntoMyFleet()
     {
-        $this->controller->registerVehicleIntoFleet();
+        $this->controller = $this->controller->registerVehicleIntoFleet($this->controller);
     }
 
     /**
@@ -131,7 +136,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function thisVehicleShouldBePartOfMyVehicleFleet()
     {
-        $this->controller->isPartOfMyFleet();
+        $this->controller->isPartOfMyFleet($this->controller);
     }
 
     /**
@@ -139,7 +144,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function iTryToRegisterThisVehicleIntoMyFleet()
     {
-
+        $this->controller = $this->controller->registerVehicle($this->controller);
 
     }
 
@@ -148,7 +153,7 @@ class FeatureContext extends TestCase implements Context
      */
     public function iShouldBeInformedThisThisVehicleHasAlreadyBeenRegisteredIntoMyFleet()
     {
-
+        $this->controller->getErrorMessage();
     }
 
     /**
@@ -157,21 +162,22 @@ class FeatureContext extends TestCase implements Context
     public function theFleetOfAnotherUser()
     {
 
+        $this->controller = $this->controller->initialiseFleet('2');
     }
 
     /**
      * @Given this vehicle has been registered into the other user's fleet
      */
-    public function thisVehicleHasBeenRegisteredIntoTheOtherUsersFleet($vehicle)
+    public function thisVehicleHasBeenRegisteredIntoTheOtherUsersFleet()
     {
-
+        $this->controller = $this->controller->registerVehicleIntoFleet($this->controller);
     }
 
     /**
      * @Then this vehicle should be part of my vehicle flee
      */
-    public function thisVehicleShouldBePartOfMyVehicleFlee(Vehicle $vehicle)
+    public function thisVehicleShouldBePartOfMyVehicleFlee()
     {
-
+        $this->controller->isPartOfMyFleet($this->controller);
     }
 }

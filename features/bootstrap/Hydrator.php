@@ -8,7 +8,7 @@ trait Hydrator {
        foreach ($datas as $key => $data) {
            $method = 'set'.ucfirst($key);
            if(is_callable([$this, $method])){
-               $this->$method($datas);
+               $this->$method($data);
            }
        }
    }

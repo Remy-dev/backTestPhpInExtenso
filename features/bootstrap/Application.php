@@ -5,7 +5,6 @@
 class Application {
     protected $httpRequest;
 
-
     public function __construct()
     {
         $this->httpRequest = new HTTPRequest();

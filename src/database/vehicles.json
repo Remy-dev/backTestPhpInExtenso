@@ -1,127 +1,44 @@
 {
-    "fleets": [
+    "vehicles": [
         {
             "registration": "A290B",
             "type": "car",
-            "fleetId": 2,
+            "fleetId": [
+                2,
+                1
+            ],
             "parkLocation": "43.3115357,5.3727415999999995",
             "isParked": true
         },
         {
             "registration": "A907L",
             "type": "motorbike",
-            "fleetId": 1,
+            "fleetId": [
+                2,
+                1
+            ],
             "parkLocation": "43.3115357,5.3727415999999995",
             "isParked": true
         },
         {
             "registration": "E8809",
             "type": "motorbike",
-            "fleetId": 1,
+            "fleetId": [
+                2
+            ],
             "parkLocation": "43.3115357,5.3727415999999995",
             "isParked": true
         },
         {
             "registration": "A5677",
             "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
-        },
-        {
-            "registration": "A5677",
-            "type": "car",
-            "fleetUser": "me",
-            "parkLocation": ""
+            "fleetId": [
+                "",
+                1,
+                2
+            ],
+            "parkLocation": "",
+            "isParked": false
         }
     ]
 }

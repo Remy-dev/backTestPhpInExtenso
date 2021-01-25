@@ -5,10 +5,11 @@
 
 class Vehicle {
 
-    private $registration = 0;
+    private $registration = '';
     private $type = '';
-    private $fleetId = 0;
+    private $fleetId = '';
     private $parkLocation = '';
+    private $isParked = false;
 
     use Hydrator;
 
@@ -34,7 +35,7 @@ class Vehicle {
     }
 
     public function setRegistration($registration){
-        if(empty($registation) || null === $registration){
+        if(empty($registration) || null === $registration){
             throw new \InvalidArgumentException('Exception error : vehicle must have valid registration number');
         }
         $this->registration = $registration;
@@ -49,7 +50,7 @@ class Vehicle {
 
     public function setFleetId($id){
         if(!empty($id)){
-            $this->fleetId = (int) $id;
+            $this->fleetId = $id;
         }
     }
 
